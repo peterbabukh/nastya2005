@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Настя, привет!</h1>
-    <p>Вот твой проект. Удачи!</p>
-  </body>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<div class="foto">
+
+  <header>
+    <div class="menu">
+      <h5 class="menu-header"><a href="">1</a></h5>
+      <h5 class="menu-header"><a href="">2</a></h5>
+      <h5 class="menu-header"><a href="">3</a></h5>
+    </div>
+  </header>
+
+</div>
+
+
+<div class="benifits-container">
+  <div class="benifits-block"> <% include ./partials/text %></div>
+  <div class="vertical-divider"></div>
+  <div class="benifits-block"><% include ./partials/text %></div>
+</div>
+
+
+</body>
 </html>
