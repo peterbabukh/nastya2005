@@ -1,6 +1,8 @@
 @import "./variables.less";
 @import "./common.less";
 
+@butterfly-padding: 150px;
+
 * {
   margin: 0;
   padding: 0;
@@ -53,21 +55,43 @@
   }
 }
 
-.preamble {
+.butterfly {
+  position: relative;
   display: flex;
   width: 50%;
   margin: auto;
   color: @darkBlue;
 
   &__picture {
-    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 250px;
+    width: @butterfly-padding;
     background: url("../images/2.png") no-repeat center center;
     background-size: contain;
   }
 
-  &__text {
-    max-width: 400px;
-    margin: 10px auto;
-    text-align: justify;
+  &__text-container {
+    max-width: 600px;
+    padding: 0 0 0 @butterfly-padding;
+
+    &__h3 {
+      font-family: "magic";
+      font-size: 30px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    &__text {
+      margin: 10px auto;
+      text-align: justify;
+    }
   }
+}
+
+.explanation {
+  margin: 0 335px 0 20px;
+  text-align: justify;
 }
