@@ -1,21 +1,23 @@
 @import "./variables.less";
 @import "./common.less";
 
-@butterfly-padding: 150px;
+@picture-block-padding: 150px;
 
-* {
-  margin: 0;
-  padding: 0;
-}
+//@media screen and (min-width: @minWidth) and (max-width: @maxWidth) {
+  //@rules();
+//}
 
 .header-container {
   position: relative;
-  width: 700px;
+  max-width: 700px;
   height: 550px;
   border: none;
   background: url("../images/1.png") no-repeat center center;
   background-size: cover;
   margin: auto;
+
+  @media screen and (min-width: 0) and (max-width: @phoneWidth) {
+  }
 
   & .header {
     position: absolute;
@@ -55,12 +57,16 @@
   }
 }
 
-.butterfly {
+.picture-block {
   position: relative;
   display: flex;
   width: 50%;
   margin: auto;
   color: @darkBlue;
+
+  @media screen and (min-width: 0) and (max-width: @phoneWidth) {
+    width: 100%;
+  }
 
   &__picture {
     position: absolute;
@@ -68,14 +74,18 @@
     top: 50%;
     transform: translateY(-50%);
     height: 250px;
-    width: @butterfly-padding;
+    width: @picture-block-padding;
     background: url("../images/2.png") no-repeat center center;
     background-size: contain;
   }
 
   &__text-container {
     max-width: 600px;
-    padding: 0 0 0 @butterfly-padding;
+    padding: 0 0 0 @picture-block-padding;
+
+    @media screen and (min-width: 0) and (max-width: @phoneWidth) {
+      padding: 0 20px 0 @picture-block-padding;
+    }
 
     &__h3 {
       font-family: "magic";
@@ -85,7 +95,7 @@
     }
 
     &__text {
-      margin: 10px auto;
+      margin: 10px 0 20px 0;
       text-align: justify;
     }
   }
@@ -94,4 +104,68 @@
 .explanation {
   margin: 0 335px 0 20px;
   text-align: justify;
+
+  @media screen and (min-width: 0) and (max-width: @phoneWidth) {
+    margin: 10px 20px 10px 20px;
+  }
 }
+
+.sidebar {
+  position: absolute;
+  right: 100px;
+  top: 565px;
+
+  @media screen and (min-width: 0) and (max-width: @ipadResolution) {
+    position: relative;
+    right: inherit;
+    top: inherit;
+  }
+
+  @media screen and (min-width: @tabletResolution) and (max-width: @preIpadResolution) {
+    max-width: 300px;
+    margin: auto;
+    padding: 10px 0 0 180px;
+  }
+
+  & .select {
+    padding: 0 0 3px 35px;
+    color: @purple;
+    font-family: 'magic';
+    font-size: 25px;
+  }
+
+  & ul {
+    text-align: left;
+    margin: 0 0 0 0;
+    padding: 0 0 15px 35px;
+    font-size: 12px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: @purple;
+    width: 120px;
+
+    & .design-name {
+      display: block;
+    }
+  }
+
+  &__links {
+
+    &__link {
+      padding: 5px;
+      margin: 8px 10px 0 0;
+      border: 1px solid #eeeeee;
+      background-color: #fff;
+      color: @purple;
+      font-family: Geneva, Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+  }
+
+  &__picture {
+    background: url("../images/3.png") no-repeat center center;
+    background-size: contain;
+    height: 250px;
+    width: @picture-block-padding;
+  }
+}
+
