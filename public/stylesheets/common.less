@@ -12,17 +12,62 @@
 
 .body {
   position: relative;
-}
 
-ul {
-  list-style: none;
-}
+  &.red-theme {
+    & .header {
+      background-color: red;
+    }
 
-.flex {
-  display: flex;
-}
+    & .sidebar__picture {
+      background-image: url("../images/star.png");
+    }
 
-@keyframes rotatePicture {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(360deg);}
+    & .explanation-container.img-1 {
+      background-image: url("../images/fish.jpg");
+    }
+
+    & .explanation-container.img-2 {
+      background-image: url("../images/fish-2.jpg");
+    }
+
+    .page-wrapper .design .picture-block__picture .container .front {
+      background-image: url("../images/star.png");
+    }
+
+    .page-wrapper .design .picture-block__picture .container .back {
+      background-image: url("../images/fish-4.png");
+    }
+
+    .page-wrapper .design .picture-block__text-container__h3 {
+      color: orangered;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .center {
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex {
+    display: flex;
+
+    &.column {
+      flex-direction: column;
+    }
+  }
+
+  @keyframes rotatePicture {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
 }
