@@ -61,4 +61,26 @@ function whatTime () {
 function setTheme(className) {
     var body = document.getElementById("body");
     body.className = 'body ' + className;
-}0.
+}
+
+function toggleVideo(showVideo) {
+    var videoIndex = +localStorage.getItem("videoIndex") || 0;
+    const videos = [
+        'https://www.youtube.com/embed/Cg4X-TAOtTU?autoplay=1',
+        'https://www.youtube.com/embed/tb-hsftn3MY?autoplay=1',
+        'https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1',
+        'https://www.youtube.com/embed/K8e30t_HqBc?autoplay=1',
+        'https://www.youtube.com/embed/YnvOQji6zZ0?autoplay=1'
+    ];
+    const display = showVideo ? 'block' : 'none';
+    document.getElementById('video').src = videos[videoIndex];
+    document.getElementById('videos').style.display = display;
+
+    if (showVideo) {
+        videoIndex = videoIndex + 1;
+        if (videoIndex >= videos.length) {
+            videoIndex = 0;
+        }
+        localStorage.setItem("videoIndex", videoIndex);
+    }
+}
