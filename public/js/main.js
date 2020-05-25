@@ -1,5 +1,5 @@
-function createAsideLinks () {
-    var links = [
+const createAsideLinks = () => {
+    const links = [
         {
             text: 'HTML',
             href: 'http://validator.w3.org/check/referer',
@@ -27,23 +27,21 @@ function createAsideLinks () {
         },
     ];
 
-    function createLinks(item) {
-        var link = item.href;
-        var title = item.title;
-        var text = item.text;
+    const createLinks = (item) => {
+        const link = item.href;
+        const title = item.title;
+        const text = item.text;
         return exotic += '<a class="sidebar__links__link" title="' + title + '" href="' + link + '">' + text + '</a>';
     }
 
-    var exotic = "";
+    const exotic = "";
     links.forEach(createLinks);
     document.getElementById("sidebar__links").innerHTML = exotic;
-}
+};
 
-createAsideLinks();
-
-function whatTime () {
-    var timeNow = new Date().getHours();
-    var image;
+const whatTime = () => {
+    let timeNow = new Date().getHours();
+    let image;
 
     if (timeNow > 0 && timeNow <= 3) {
         image = "9.png";
@@ -58,13 +56,14 @@ function whatTime () {
 }
 
 
-function setTheme(className) {
-    var body = document.getElementById("body");
+const setTheme = (className) => {
+    const body = document.getElementById("body");
     body.className = 'body ' + className;
+    localStorage.setItem("theme", className);
 }
 
-function toggleVideo(showVideo) {
-    var videoIndex = +localStorage.getItem("videoIndex") || 0;
+const toggleVideo = (showVideo) => {
+    let videoIndex = +localStorage.getItem("videoIndex") || 0;
     const videos = [
         'https://www.youtube.com/embed/Cg4X-TAOtTU?autoplay=1',
         'https://www.youtube.com/embed/tb-hsftn3MY?autoplay=1',
@@ -73,7 +72,7 @@ function toggleVideo(showVideo) {
         'https://www.youtube.com/embed/YnvOQji6zZ0?autoplay=1'
     ];
     const display = showVideo ? 'block' : 'none';
-    document.getElementById('video').src = videos[videoIndex];
+    document.getElementById('video').src = showVideo ? videos[videoIndex] : null;
     document.getElementById('videos').style.display = display;
 
     if (showVideo) {
@@ -84,3 +83,11 @@ function toggleVideo(showVideo) {
         localStorage.setItem("videoIndex", videoIndex);
     }
 }
+
+const init = () => {
+    const theme = localStorage.getItem("theme");
+    setTheme(theme);
+    createAsideLinks();
+}
+
+init();
